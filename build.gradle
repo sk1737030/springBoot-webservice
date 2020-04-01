@@ -26,7 +26,6 @@ repositories {
     jcenter()
 }
 
-
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.projectlombok:lombok')
@@ -34,11 +33,14 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('com.h2database:h2')
 
-    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
-    compile('org.springframework.session:spring-session-jdbc')
+    //compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+   // compile('org.springframework.session:spring-session-jdbc')
 
-    compile("org.mariadb.jdbc:mariadb-java-client")
+//    compile("org.mariadb.jdbc:mariadb-java-client")
 
+    annotationProcessor 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.projectlombok:lombok'
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile("org.springframework.security:spring-security-test")
+ //   testCompile("org.springframework.security:spring-security-test")
 }
