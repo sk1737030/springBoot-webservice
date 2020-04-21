@@ -15,4 +15,6 @@ public class PostsUpdateRequestDto {
         this.title = title;
         this.content = content;
     }
+
+
 }

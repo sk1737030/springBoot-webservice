@@ -1,6 +1,9 @@
 package org.dongguri.springboot.web;
 
 import lombok.RequiredArgsConstructor;
+import org.dongguri.springboot.config.auth.LoginUser;
+import org.dongguri.springboot.config.auth.dto.SessionUser;
+import org.dongguri.springboot.domain.user.User;
 import org.dongguri.springboot.service.posts.PostsService;
 import org.dongguri.springboot.web.dto.PostsResponseDto;
 import org.dongguri.springboot.web.dto.PostsUpdateRequestDto;
@@ -11,21 +14,30 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
+    private final HttpSession httpSession;
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
+
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+
         return "index";
     }
 
-    @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
-        return postsService.update(id, requestDto);
+
+    @GetMapping("/posts/save")
+    public String postsSave() {
+        return "posts-save";
     }
 
     @GetMapping("/posts/update/{id}")
