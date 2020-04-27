@@ -1,0 +1,10 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/app/step2/zip/
+    overwrite: yes
+
+#@destination
+# source에서 지정된 파일을 받을 위치
+# 이후 jar를 실행하는등은 destination에서 옮긴 파일들로 진행된다.
