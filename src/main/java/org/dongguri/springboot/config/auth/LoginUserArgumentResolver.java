@@ -30,7 +30,7 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
 }
 
 /**
- *  supportsParameter9)
+ *  supportsParameter()
  *  - 컨트롤러 메서드의 특정 파라미터를 지원하는지 판단
  *  - 여기서는 파라미터에 @LoginUser어노테이션이 붙어 있고, 파라미터 클래스 타입이 SessionUser.class 인경우 true를 반환
  *
