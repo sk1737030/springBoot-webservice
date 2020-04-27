@@ -19,3 +19,6 @@ notifications:
   email:
     recipients:
       - sk1737030@ubncorp.kr
+
+before_install:
+  - chomod +x gradlew
