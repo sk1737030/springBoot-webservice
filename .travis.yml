@@ -19,9 +19,16 @@ before_install:
 
 # code deploy는 jar 파일은 인식하지 못하므로 jar 기타 설정파일들을 모아 압축한다
 before_deploy:
-  - zip -r springBoot-webservice *
-  - mkdir -p deploy
-  - mv springBoot-webservice.zip deploy/springBoot-webservice.zip
+  - mkdir -p before-deploy # zip에 포함시킬 파일들을 담을 디렉토리 생성
+  - cp scripts/*.sh before-deploy/
+  - cp build/libs/*.jar before-deploy/
+  - cp before-deploy && zip -r before-deploy * # before-deploy로 이동 후 전체 압축
+  - cd ../ && mkdir -p deploy # 상위 디렉토리 이동 후 deploy 디렉토리 생성
+  - mv before-deploy/before-deploy.zip deploy/springBoot-webservice.zip # deploy로 zip 파일 이동
+#  - zip -r springBoot-webservice *
+#  - mkdir -p deploy
+#  - mv springBoot-webservice.zip deploy/springBoot-webservice.zip
+#travisci는 디렉토리 단위로만 업로드 할 수 있다. deploy 디렉토리는 항상 생성된다.
 
 deploy:
   - provider : s3
