@@ -29,7 +29,6 @@ public class ProfileController {
 /**
  * env.getActiveProfiles()
  * - 현재 실행 중인 ActiveProfile을 모두 가져온다.
- * - 즉, real, oauth, real-db 등이 활성화되어 있다면 (active) 3개가 모두 담겨 있다.
- * - 여기서 real, eral1, real2, 는 모두 배포에 사용될 profile이라 이 중 하라도 있으면 그 값을 반환하도록 한다.
+0 * - 여기서 real, eral1, real2, 는 모두 배포에 사용될 profile이라 이 중 하라도 있으면 그 값을 반환하도록 한다.
  * - 실제로 이번 무중단 배포에서는 real1, real2 만 사용되지만 step2를 다시 사용해 볼수도 있으니 real도 남겨둔다.
  */
