@@ -17,7 +17,8 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group 'org.dongguri.springboot'
-version '1.0.4-SNAPSHOT-'+new Date().format("yyyyMMddHHmmss")
+// build.gradle은 Groovy 기반의 빌드툴이다. 그래서 new Date를 사용가능하다.
+version '1.0.4-SNAPSHOT-'+ new Date().format("yyyyMMddHHmmss")
 
 sourceCompatibility = 1.8
 

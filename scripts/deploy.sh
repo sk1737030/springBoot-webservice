@@ -1,7 +1,7 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
-PROJECT_NAME=freelec-springboot2-webservice
+REPOSITORY=/home/ec2-user/app/step3
+PROJECT_NAME=springBoot-webservice
 
 echo "> Build 파일 복사"
 
