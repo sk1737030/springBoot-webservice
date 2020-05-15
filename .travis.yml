@@ -15,8 +15,8 @@ cache:
 script:
   "./gradlew clean build"
 
-before_install:
-  - chmod +x gradlew
+#before_install:
+#  - chmod +x gradlew
 
 # code deploy는 jar 파일은 인식하지 못하므로 jar 기타 설정파일들을 모아 압축한다
 before_deploy:
