@@ -8,9 +8,8 @@ function find_idle_profile() {
   # 응답값을 httpstatus로 받는다
   # 정상이면 200 오류가 발생한다면 400~503사이로 발생하니 400이상은 모두 예외로 보고 real2를 현재 profile로 사용한다.
   RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)
-
+ echo "뭐까 뜰까용 $RESPONSE_CODE"
   if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면 (즉, 40x/50x 에러 모두 포함)
-
   then
     CURRENT_PROFILE=real2
   else
