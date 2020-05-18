@@ -13,13 +13,11 @@ import java.util.List;
 public class ProfileController {
     private final Environment env;
 
-    @GetMapping("/profile")
-    public String profile() {
-        List<String> profiles = Arrays.asList(env.getActiveProfiles());
+        @GetMapping("/profile")
+        public String profile() {
+            List<String> profiles = Arrays.asList(env.getActiveProfiles());
         List<String> realProfiles = Arrays.asList("real", "real1", "real2");
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
-
-        System.out.println("뭐 뜨냐 포트 : ? " + defaultProfile);
 
         return profiles.stream()
                 .filter(realProfiles::contains)
