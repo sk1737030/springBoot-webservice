@@ -20,7 +20,6 @@ public class ProfileController {
         String defaultProfile = profiles.isEmpty() ? "default" : profiles.get(0);
 
         System.out.println("defaultProfile: " + defaultProfile);
-        System.out.println("defaultProfㅁㄴㅇㅁㄴㅇile: " + env.getActiveProfiles().toString());
 
         return profiles.stream()
                 .filter(realProfiles::contains)
