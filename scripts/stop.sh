@@ -1,11 +1,17 @@
+#!/usr/bin/env bash
+
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
+
 #현재 stop.sh가 속해있는 경로를 찾는다.
 #하단의 코드와 같이 profile.sh의 경로를 찾기 위해서 사용
-ABSDIR=$(dirname $ABSPATH)
+source ${ABSDIR}/profile.sh
+
+
+
 
 #자바로 보면 일종의 import문
 # 해당 코드로 인해 stop.sh 에서도 profile.sh 의 여러 function을 사용 할 수 있다.
-source $(ABSDIR)/profile.sh
-
 IDLE_PORT=$(find_idle_port)
 
 echo "> $IDLE_PORT 에서 구동중인 애플리케이션 pid 확인"
